@@ -1,0 +1,4 @@
+browser: chrome
+headless: False
+timeout: 30000
+base_url: https://automationexercise.com/

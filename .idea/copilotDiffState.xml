@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="/login_page (snapshot).py">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="/login_page (snapshot).py" />
+              <option name="originalContent" value="from src.core.base_page import BasePage&#10;import logging&#10;&#10;logger = logging.getLogger(__name__)&#10;&#10;&#10;class LoginPage(BasePage):&#10;&#10;    def __init__(self, page):&#10;        super().__init__(page)&#10;&#10;    def enter_login_credentials(self, email, password):&#10;        logger.info(&quot;Entering login credentials&quot;)&#10;        self.fill(&quot;//input[@type='email' and @data-qa='login-email']&quot;, email)&#10;        self.fill(&quot;//input[@type='password' and @data-qa='login-password']&quot;, password)&#10;        self.click(&quot;//button[@type='submit' and @data-qa='login-button']&quot;)&#10;&#10;        from pages.home_page import HomePage&#10;        return HomePage(self.page)" />
+              <option name="updatedContent" value="from pages.base_page import BasePage&#10;from selenium.webdriver.common.by import By&#10;&#10;&#10;class LoginPage(BasePage):&#10;&#10;    def __init__(self, driver):&#10;        super().__init__(driver)&#10;&#10;    def enter_login_credentials(self, email, password):&#10;        &quot;&quot;&quot;Enter email and password and submit login form&quot;&quot;&quot;&#10;        self.logger.info(&quot;Entering login credentials&quot;)&#10;        email_input = (By.XPATH, &quot;//input[@type='email' and @data-qa='login-email']&quot;)&#10;        password_input = (By.XPATH, &quot;//input[@type='password' and @data-qa='login-password']&quot;)&#10;        login_button = (By.XPATH, &quot;//button[@type='submit' and @data-qa='login-button']&quot;)&#10;        &#10;        self.enter_text(email_input, email)&#10;        self.enter_text(password_input, password)&#10;        self.click(login_button)&#10;&#10;        from pages.home_page import HomePage&#10;        return HomePage(self.driver)" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
