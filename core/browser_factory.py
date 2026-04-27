@@ -17,13 +17,3 @@ class BrowserFactory:
             return webdriver.Edge()
         else:
             raise ValueError(f"Browser '{browser_name}' is not supported. Use chrome, firefox, or edge.")
-
-
-if __name__ == "__main__":
-    driver = BrowserFactory.get_browser()          # defaults to chrome
-    # driver = BrowserFactory.get_browser("firefox")
-    # driver = BrowserFactory.get_browser("edge")
-
-    driver.get("https://www.google.com")
-    print(f"Title: {driver.title}")
-    driver.quit()

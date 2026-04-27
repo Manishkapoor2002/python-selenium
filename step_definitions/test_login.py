@@ -4,13 +4,11 @@ from pytest_bdd import scenarios, given, when, then
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver import ActionChains
 
 
-# Load the feature file
 scenarios('../features/login.feature')
 
-
-# --- Background Steps ---
 @given("I am on the home page")
 def navigate_home(context_state):
     # Pass the driver to your updated Selenium Page Object
@@ -54,7 +52,6 @@ def login_invalid_user(context_state, users_data):
     loginpage.enter_login_credentials(email, password)
 
 
-# --- Then Steps ---
 @then("I should see the \"Login to your account\" heading")
 def verify_login_heading(context_state):
     wait = context_state["wait"]
@@ -86,12 +83,10 @@ def verify_signup_login_visible(context_state):
 def failing_step_for_screenshot(context_state):
     driver = context_state["driver"]
 
-    # Simulating Playwright's soft=True using pytest-check
-    # If the element isn't found, it won't instantly kill the test flow
     try:
         element = WebDriverWait(driver, 3).until(EC.visibility_of_element_located(
             (By.XPATH, "//*[contains(text(), 'This heading does not exist')]")
         ))
-        check.is_true(element.is_displayed(), "Expected non-existent heading to be visible")
+        assert element.is_displayed() ==  "Expected non-existent heading to be visible"
     except Exception as e:
         check.is_true(False, f"Soft assertion failed, element not found: {e}")
