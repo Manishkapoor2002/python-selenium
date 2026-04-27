@@ -1,2 +1,4 @@
 venv
 reports
+.idea
+__pycache__

@@ -27,4 +27,3 @@ class BasePage:
     def is_displayed(self, locator):
         self.logger.info(f"Checking if element is displayed: {locator}")
         return self.wait.until(EC.visibility_of_element_located(locator)).is_displayed()
-
