@@ -56,5 +56,45 @@ class ProductsListResponse:
         )
 
 
-__all__ = ["Product", "ProductsListResponse", "MethodNotAllowedResponse"]
+@dataclass
+class SearchProductItem:
+    """A single product entry returned by POST /searchProduct."""
+
+    id: int
+    name: str
+    price: Optional[str] = None
+    brand: Optional[str] = None
+    category: Optional[dict] = None
+
+
+@dataclass
+class SearchProductResponse:
+    """Top-level response payload for POST /searchProduct."""
+
+    products: List[SearchProductItem] = field(default_factory=list)
+
+    @classmethod
+    def from_dict(cls, data: dict) -> "SearchProductResponse":
+        items = data.get("products", []) or []
+        return cls(
+            products=[
+                SearchProductItem(
+                    id=item.get("id"),
+                    name=item.get("name"),
+                    price=item.get("price"),
+                    brand=item.get("brand"),
+                    category=item.get("category"),
+                )
+                for item in items
+            ]
+        )
+
+
+__all__ = [
+    "Product",
+    "ProductsListResponse",
+    "MethodNotAllowedResponse",
+    "SearchProductItem",
+    "SearchProductResponse",
+]
 

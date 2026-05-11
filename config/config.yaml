@@ -41,4 +41,3 @@ api:
     password_env: API_PASSWORD      # for type: basic
     header_name: X-API-Key          # for type: api_key
     api_key_env: API_KEY            # for type: api_key
-

@@ -1,56 +1,72 @@
-11:52:38 [DEBUG] Adding providers for fixture 'pytestbdd_stepimpl_then_I look for a non-existent heading to trigger a failure': [<FixtureDef argname='pytestbdd_stepdef_then_I look for a non-existent heading to trigger a failure' scope='function' baseid='step_definitions/test_login.py'>]
-11:52:38 [INFO] ====== WebDriver manager ======
-11:52:40 [INFO] Get LATEST chromedriver version for google-chrome
-11:52:40 [DEBUG] Starting new HTTPS connection (1): googlechromelabs.github.io:443
-11:52:40 [DEBUG] https://googlechromelabs.github.io:443 "GET /chrome-for-testing/latest-patch-versions-per-build.json HTTP/1.1" 200 15993
-11:52:40 [INFO] Get LATEST chromedriver version for google-chrome
-11:52:40 [DEBUG] Starting new HTTPS connection (1): googlechromelabs.github.io:443
-11:52:40 [DEBUG] https://googlechromelabs.github.io:443 "GET /chrome-for-testing/latest-patch-versions-per-build.json HTTP/1.1" 200 15993
-11:52:40 [INFO] Driver [C:\Users\ManishKapoor\.wdm\drivers\chromedriver\win64\146.0.7680.165\chromedriver-win32/chromedriver.exe] found in cache
-11:52:40 [DEBUG] Skipping Selenium Manager; path to chrome driver specified in Service class: C:\Users\ManishKapoor\.wdm\drivers\chromedriver\win64\146.0.7680.165\chromedriver-win32/chromedriver.exe
-11:52:40 [DEBUG] Started executable: `C:\Users\ManishKapoor\.wdm\drivers\chromedriver\win64\146.0.7680.165\chromedriver-win32/chromedriver.exe` in a child process with pid: 50144 using 0 to output -3
-11:52:41 [DEBUG] POST http://localhost:56706/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'goog:chromeOptions': {'extensions': [], 'args': []}}}}
-11:52:41 [DEBUG] Starting new HTTP connection (1): localhost:56706
-11:52:42 [DEBUG] http://localhost:56706 "POST /session HTTP/1.1" 200 0
-11:52:42 [DEBUG] Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"146.0.7680.178","chrome":{"chromedriverVersion":"146.0.7680.165 (4b989da09e15a7dc0de0785cb5ff232aadae3f0f-refs/branch-heads/7680@{#2932})","userDataDir":"C:\\Users\\MANISH~1\\AppData\\Local\\Temp\\scoped_dir50144_606836681"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:56709"},"goog:processID":11756,"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"windows","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"d629bcd69e71ebdc2100449628906815"}} | headers=HTTPHeaderDict({'Content-Length': '909', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
-11:52:42 [DEBUG] Finished Request
-11:52:42 [DEBUG] POST http://localhost:56706/session/d629bcd69e71ebdc2100449628906815/url {'url': 'https://automationexercise.com/'}
-11:52:45 [DEBUG] http://localhost:56706 "POST /session/d629bcd69e71ebdc2100449628906815/url HTTP/1.1" 200 0
-11:52:45 [DEBUG] Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
-11:52:45 [DEBUG] Finished Request
-11:52:45 [DEBUG] POST http://localhost:56706/session/d629bcd69e71ebdc2100449628906815/window/maximize {}
-11:52:45 [DEBUG] http://localhost:56706 "POST /session/d629bcd69e71ebdc2100449628906815/window/maximize HTTP/1.1" 200 0
-11:52:45 [DEBUG] Remote response: status=200 | data={"value":{"height":1216,"width":1936,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '52', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
-11:52:45 [DEBUG] Finished Request
-11:52:45 [DEBUG] POST http://localhost:56706/session/d629bcd69e71ebdc2100449628906815/element {'using': 'xpath', 'value': "//*[contains(text(), 'This heading does not exist')]"}
-11:52:45 [DEBUG] http://localhost:56706 "POST /session/d629bcd69e71ebdc2100449628906815/element HTTP/1.1" 404 0
-11:52:45 [DEBUG] Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[contains(text(), 'This heading does not exist')]\"}\n  (Session info: chrome=146.0.7680.178)","stacktrace":"\tchromedriver!GetHandleVerifier [0x6ccdf3+10b03]\n\tchromedriver!GetHandleVerifier [0x6ccf24+10c34]\n\tchromedriver!(No symbol) [0x4b2120]\n\tchromedriver!(No symbol) [0x4fabca]\n\tchromedriver!(No symbol) [0x4fae6b]\n\tchromedriver!(No symbol) [0x53d0b2]\n\tchromedriver!(No symbol) [0x51db54]\n\tchromedriver!(No symbol) [0x53a9a5]\n\tchromedriver!(No symbol) [0x51d8a6]\n\tchromedriver!(No symbol) [0x4f0229]\n\tchromedriver!(No symbol) [0x4f0fe4]\n\tchromedriver!GetHandleVerifier [0x9348b9+2785c9]\n\tchromedriver!GetHandleVerifier [0x92feb5+273bc5]\n\tchromedriver!GetHandleVerifier [0x94e06b+291d7b]\n\tchromedriver!GetHandleVerifier [0x6e5cc8+299d8]\n\tchromedriver!GetHandleVerifier [0x6ed9fd+3170d]\n\tchromedriver!GetHandleVerifier [0x6d58c8+195d8]\n\tchromedriver!GetHandleVerifier [0x6d5a92+197a2]\n\tchromedriver!GetHandleVerifier [0x6bee9a+2baa]\n\tKERNEL32!(No symbol) [0x75db5d49]\n\tntdll!RtlInitializeExceptionChain [0x778fd81b+6b]\n\tntdll!RtlGetAppContainerNamedObjectPath [0x778fd7a1+231]\n"}} | headers=HTTPHeaderDict({'Content-Length': '1255', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
-11:52:45 [DEBUG] Finished Request
-11:52:46 [DEBUG] POST http://localhost:56706/session/d629bcd69e71ebdc2100449628906815/element {'using': 'xpath', 'value': "//*[contains(text(), 'This heading does not exist')]"}
-11:52:46 [DEBUG] http://localhost:56706 "POST /session/d629bcd69e71ebdc2100449628906815/element HTTP/1.1" 404 0
-11:52:46 [DEBUG] Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[contains(text(), 'This heading does not exist')]\"}\n  (Session info: chrome=146.0.7680.178)","stacktrace":"\tchromedriver!GetHandleVerifier [0x6ccdf3+10b03]\n\tchromedriver!GetHandleVerifier [0x6ccf24+10c34]\n\tchromedriver!(No symbol) [0x4b2120]\n\tchromedriver!(No symbol) [0x4fabca]\n\tchromedriver!(No symbol) [0x4fae6b]\n\tchromedriver!(No symbol) [0x53d0b2]\n\tchromedriver!(No symbol) [0x51db54]\n\tchromedriver!(No symbol) [0x53a9a5]\n\tchromedriver!(No symbol) [0x51d8a6]\n\tchromedriver!(No symbol) [0x4f0229]\n\tchromedriver!(No symbol) [0x4f0fe4]\n\tchromedriver!GetHandleVerifier [0x9348b9+2785c9]\n\tchromedriver!GetHandleVerifier [0x92feb5+273bc5]\n\tchromedriver!GetHandleVerifier [0x94e06b+291d7b]\n\tchromedriver!GetHandleVerifier [0x6e5cc8+299d8]\n\tchromedriver!GetHandleVerifier [0x6ed9fd+3170d]\n\tchromedriver!GetHandleVerifier [0x6d58c8+195d8]\n\tchromedriver!GetHandleVerifier [0x6d5a92+197a2]\n\tchromedriver!GetHandleVerifier [0x6bee9a+2baa]\n\tKERNEL32!(No symbol) [0x75db5d49]\n\tntdll!RtlInitializeExceptionChain [0x778fd81b+6b]\n\tntdll!RtlGetAppContainerNamedObjectPath [0x778fd7a1+231]\n"}} | headers=HTTPHeaderDict({'Content-Length': '1255', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
-11:52:46 [DEBUG] Finished Request
-11:52:46 [DEBUG] POST http://localhost:56706/session/d629bcd69e71ebdc2100449628906815/element {'using': 'xpath', 'value': "//*[contains(text(), 'This heading does not exist')]"}
-11:52:47 [DEBUG] http://localhost:56706 "POST /session/d629bcd69e71ebdc2100449628906815/element HTTP/1.1" 404 0
-11:52:47 [DEBUG] Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[contains(text(), 'This heading does not exist')]\"}\n  (Session info: chrome=146.0.7680.178)","stacktrace":"\tchromedriver!GetHandleVerifier [0x6ccdf3+10b03]\n\tchromedriver!GetHandleVerifier [0x6ccf24+10c34]\n\tchromedriver!(No symbol) [0x4b2120]\n\tchromedriver!(No symbol) [0x4fabca]\n\tchromedriver!(No symbol) [0x4fae6b]\n\tchromedriver!(No symbol) [0x53d0b2]\n\tchromedriver!(No symbol) [0x51db54]\n\tchromedriver!(No symbol) [0x53a9a5]\n\tchromedriver!(No symbol) [0x51d8a6]\n\tchromedriver!(No symbol) [0x4f0229]\n\tchromedriver!(No symbol) [0x4f0fe4]\n\tchromedriver!GetHandleVerifier [0x9348b9+2785c9]\n\tchromedriver!GetHandleVerifier [0x92feb5+273bc5]\n\tchromedriver!GetHandleVerifier [0x94e06b+291d7b]\n\tchromedriver!GetHandleVerifier [0x6e5cc8+299d8]\n\tchromedriver!GetHandleVerifier [0x6ed9fd+3170d]\n\tchromedriver!GetHandleVerifier [0x6d58c8+195d8]\n\tchromedriver!GetHandleVerifier [0x6d5a92+197a2]\n\tchromedriver!GetHandleVerifier [0x6bee9a+2baa]\n\tKERNEL32!(No symbol) [0x75db5d49]\n\tntdll!RtlInitializeExceptionChain [0x778fd81b+6b]\n\tntdll!RtlGetAppContainerNamedObjectPath [0x778fd7a1+231]\n"}} | headers=HTTPHeaderDict({'Content-Length': '1255', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
-11:52:47 [DEBUG] Finished Request
-11:52:47 [DEBUG] POST http://localhost:56706/session/d629bcd69e71ebdc2100449628906815/element {'using': 'xpath', 'value': "//*[contains(text(), 'This heading does not exist')]"}
-11:52:47 [DEBUG] http://localhost:56706 "POST /session/d629bcd69e71ebdc2100449628906815/element HTTP/1.1" 404 0
-11:52:47 [DEBUG] Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[contains(text(), 'This heading does not exist')]\"}\n  (Session info: chrome=146.0.7680.178)","stacktrace":"\tchromedriver!GetHandleVerifier [0x6ccdf3+10b03]\n\tchromedriver!GetHandleVerifier [0x6ccf24+10c34]\n\tchromedriver!(No symbol) [0x4b2120]\n\tchromedriver!(No symbol) [0x4fabca]\n\tchromedriver!(No symbol) [0x4fae6b]\n\tchromedriver!(No symbol) [0x53d0b2]\n\tchromedriver!(No symbol) [0x51db54]\n\tchromedriver!(No symbol) [0x53a9a5]\n\tchromedriver!(No symbol) [0x51d8a6]\n\tchromedriver!(No symbol) [0x4f0229]\n\tchromedriver!(No symbol) [0x4f0fe4]\n\tchromedriver!GetHandleVerifier [0x9348b9+2785c9]\n\tchromedriver!GetHandleVerifier [0x92feb5+273bc5]\n\tchromedriver!GetHandleVerifier [0x94e06b+291d7b]\n\tchromedriver!GetHandleVerifier [0x6e5cc8+299d8]\n\tchromedriver!GetHandleVerifier [0x6ed9fd+3170d]\n\tchromedriver!GetHandleVerifier [0x6d58c8+195d8]\n\tchromedriver!GetHandleVerifier [0x6d5a92+197a2]\n\tchromedriver!GetHandleVerifier [0x6bee9a+2baa]\n\tKERNEL32!(No symbol) [0x75db5d49]\n\tntdll!RtlInitializeExceptionChain [0x778fd81b+6b]\n\tntdll!RtlGetAppContainerNamedObjectPath [0x778fd7a1+231]\n"}} | headers=HTTPHeaderDict({'Content-Length': '1255', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
-11:52:47 [DEBUG] Finished Request
-11:52:48 [DEBUG] POST http://localhost:56706/session/d629bcd69e71ebdc2100449628906815/element {'using': 'xpath', 'value': "//*[contains(text(), 'This heading does not exist')]"}
-11:52:48 [DEBUG] http://localhost:56706 "POST /session/d629bcd69e71ebdc2100449628906815/element HTTP/1.1" 404 0
-11:52:48 [DEBUG] Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[contains(text(), 'This heading does not exist')]\"}\n  (Session info: chrome=146.0.7680.178)","stacktrace":"\tchromedriver!GetHandleVerifier [0x6ccdf3+10b03]\n\tchromedriver!GetHandleVerifier [0x6ccf24+10c34]\n\tchromedriver!(No symbol) [0x4b2120]\n\tchromedriver!(No symbol) [0x4fabca]\n\tchromedriver!(No symbol) [0x4fae6b]\n\tchromedriver!(No symbol) [0x53d0b2]\n\tchromedriver!(No symbol) [0x51db54]\n\tchromedriver!(No symbol) [0x53a9a5]\n\tchromedriver!(No symbol) [0x51d8a6]\n\tchromedriver!(No symbol) [0x4f0229]\n\tchromedriver!(No symbol) [0x4f0fe4]\n\tchromedriver!GetHandleVerifier [0x9348b9+2785c9]\n\tchromedriver!GetHandleVerifier [0x92feb5+273bc5]\n\tchromedriver!GetHandleVerifier [0x94e06b+291d7b]\n\tchromedriver!GetHandleVerifier [0x6e5cc8+299d8]\n\tchromedriver!GetHandleVerifier [0x6ed9fd+3170d]\n\tchromedriver!GetHandleVerifier [0x6d58c8+195d8]\n\tchromedriver!GetHandleVerifier [0x6d5a92+197a2]\n\tchromedriver!GetHandleVerifier [0x6bee9a+2baa]\n\tKERNEL32!(No symbol) [0x75db5d49]\n\tntdll!RtlInitializeExceptionChain [0x778fd81b+6b]\n\tntdll!RtlGetAppContainerNamedObjectPath [0x778fd7a1+231]\n"}} | headers=HTTPHeaderDict({'Content-Length': '1255', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
-11:52:48 [DEBUG] Finished Request
-11:52:48 [DEBUG] POST http://localhost:56706/session/d629bcd69e71ebdc2100449628906815/element {'using': 'xpath', 'value': "//*[contains(text(), 'This heading does not exist')]"}
-11:52:48 [DEBUG] http://localhost:56706 "POST /session/d629bcd69e71ebdc2100449628906815/element HTTP/1.1" 404 0
-11:52:48 [DEBUG] Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[contains(text(), 'This heading does not exist')]\"}\n  (Session info: chrome=146.0.7680.178)","stacktrace":"\tchromedriver!GetHandleVerifier [0x6ccdf3+10b03]\n\tchromedriver!GetHandleVerifier [0x6ccf24+10c34]\n\tchromedriver!(No symbol) [0x4b2120]\n\tchromedriver!(No symbol) [0x4fabca]\n\tchromedriver!(No symbol) [0x4fae6b]\n\tchromedriver!(No symbol) [0x53d0b2]\n\tchromedriver!(No symbol) [0x51db54]\n\tchromedriver!(No symbol) [0x53a9a5]\n\tchromedriver!(No symbol) [0x51d8a6]\n\tchromedriver!(No symbol) [0x4f0229]\n\tchromedriver!(No symbol) [0x4f0fe4]\n\tchromedriver!GetHandleVerifier [0x9348b9+2785c9]\n\tchromedriver!GetHandleVerifier [0x92feb5+273bc5]\n\tchromedriver!GetHandleVerifier [0x94e06b+291d7b]\n\tchromedriver!GetHandleVerifier [0x6e5cc8+299d8]\n\tchromedriver!GetHandleVerifier [0x6ed9fd+3170d]\n\tchromedriver!GetHandleVerifier [0x6d58c8+195d8]\n\tchromedriver!GetHandleVerifier [0x6d5a92+197a2]\n\tchromedriver!GetHandleVerifier [0x6bee9a+2baa]\n\tKERNEL32!(No symbol) [0x75db5d49]\n\tntdll!RtlInitializeExceptionChain [0x778fd81b+6b]\n\tntdll!RtlGetAppContainerNamedObjectPath [0x778fd7a1+231]\n"}} | headers=HTTPHeaderDict({'Content-Length': '1255', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
-11:52:48 [DEBUG] Finished Request
-11:52:49 [DEBUG] POST http://localhost:56706/session/d629bcd69e71ebdc2100449628906815/element {'using': 'xpath', 'value': "//*[contains(text(), 'This heading does not exist')]"}
-11:52:49 [DEBUG] http://localhost:56706 "POST /session/d629bcd69e71ebdc2100449628906815/element HTTP/1.1" 404 0
-11:52:49 [DEBUG] Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[contains(text(), 'This heading does not exist')]\"}\n  (Session info: chrome=146.0.7680.178)","stacktrace":"\tchromedriver!GetHandleVerifier [0x6ccdf3+10b03]\n\tchromedriver!GetHandleVerifier [0x6ccf24+10c34]\n\tchromedriver!(No symbol) [0x4b2120]\n\tchromedriver!(No symbol) [0x4fabca]\n\tchromedriver!(No symbol) [0x4fae6b]\n\tchromedriver!(No symbol) [0x53d0b2]\n\tchromedriver!(No symbol) [0x51db54]\n\tchromedriver!(No symbol) [0x53a9a5]\n\tchromedriver!(No symbol) [0x51d8a6]\n\tchromedriver!(No symbol) [0x4f0229]\n\tchromedriver!(No symbol) [0x4f0fe4]\n\tchromedriver!GetHandleVerifier [0x9348b9+2785c9]\n\tchromedriver!GetHandleVerifier [0x92feb5+273bc5]\n\tchromedriver!GetHandleVerifier [0x94e06b+291d7b]\n\tchromedriver!GetHandleVerifier [0x6e5cc8+299d8]\n\tchromedriver!GetHandleVerifier [0x6ed9fd+3170d]\n\tchromedriver!GetHandleVerifier [0x6d58c8+195d8]\n\tchromedriver!GetHandleVerifier [0x6d5a92+197a2]\n\tchromedriver!GetHandleVerifier [0x6bee9a+2baa]\n\tKERNEL32!(No symbol) [0x75db5d49]\n\tntdll!RtlInitializeExceptionChain [0x778fd81b+6b]\n\tntdll!RtlGetAppContainerNamedObjectPath [0x778fd7a1+231]\n"}} | headers=HTTPHeaderDict({'Content-Length': '1255', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
-11:52:49 [DEBUG] Finished Request
-11:52:49 [DEBUG] DELETE http://localhost:56706/session/d629bcd69e71ebdc2100449628906815 {}
-11:52:49 [DEBUG] http://localhost:56706 "DELETE /session/d629bcd69e71ebdc2100449628906815 HTTP/1.1" 200 0
-11:52:49 [DEBUG] Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
-11:52:49 [DEBUG] Finished Request
+16:49:28 [INFO] Configuration loaded from C:\Users\ManishKapoor\Desktop\python-selenium\config\config.yaml
+16:49:28 [INFO] BaseApiClient initialised | base_url=https://automationexercise.com/api/ timeout=30.0 retries=3 auth=none
+16:49:28 [INFO] --> POST https://automationexercise.com/api/verifyLogin
+16:49:28 [DEBUG]     data   : {
+  "email": "testmail.999@gmail.com",
+  "password": "password@81818"
+}
+16:49:28 [DEBUG]     headers: {'User-Agent': 'python-selenium-api-tests/1.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded'}
+16:49:28 [DEBUG] Starting new HTTPS connection (1): automationexercise.com:443
+16:49:30 [DEBUG] https://automationexercise.com:443 "POST /api/verifyLogin HTTP/1.1" 200 48
+16:49:30 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (1367 ms)
+16:49:30 [DEBUG]     body: {"responseCode": 200, "message": "User exists!"}
+16:49:30 [DEBUG] Status code 200 matched expected {200}
+16:49:30 [INFO] --> POST https://automationexercise.com/api/verifyLogin
+16:49:30 [DEBUG]     data   : {
+  "email": "testmail.999@gmail.com",
+  "password": "password@81818"
+}
+16:49:30 [DEBUG]     headers: {'User-Agent': 'python-selenium-api-tests/1.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded'}
+16:49:30 [DEBUG] https://automationexercise.com:443 "POST /api/verifyLogin HTTP/1.1" 200 48
+16:49:30 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (297 ms)
+16:49:30 [DEBUG]     body: {"responseCode": 200, "message": "User exists!"}
+16:49:30 [DEBUG] Status code 200 matched expected {200}
+16:49:30 [DEBUG] Response matched schema successfully
+16:49:30 [INFO] --> POST https://automationexercise.com/api/verifyLogin
+16:49:30 [DEBUG]     data   : {
+  "email": "testmail.999@gmail.com",
+  "password": "password@81818"
+}
+16:49:30 [DEBUG]     headers: {'User-Agent': 'python-selenium-api-tests/1.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded'}
+16:49:30 [DEBUG] https://automationexercise.com:443 "POST /api/verifyLogin HTTP/1.1" 200 48
+16:49:30 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (250 ms)
+16:49:30 [DEBUG]     body: {"responseCode": 200, "message": "User exists!"}
+16:49:30 [DEBUG] Status code 200 matched expected {200}
+16:49:30 [INFO] --> POST https://automationexercise.com/api/verifyLogin
+16:49:30 [DEBUG]     data   : {
+  "email": "testmail.999@gmail.com",
+  "password": "Radom@81818"
+}
+16:49:30 [DEBUG]     headers: {'User-Agent': 'python-selenium-api-tests/1.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded'}
+16:49:30 [DEBUG] https://automationexercise.com:443 "POST /api/verifyLogin HTTP/1.1" 200 None
+16:49:30 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (262 ms)
+16:49:30 [DEBUG]     body: {"responseCode": 404, "message": "User not found!"}
+16:49:30 [DEBUG] Status code 200 matched expected {200}
+16:49:30 [INFO] --> POST https://automationexercise.com/api/verifyLogin
+16:49:30 [DEBUG]     data   : {
+  "password": "password@81818"
+}
+16:49:30 [DEBUG]     headers: {'User-Agent': 'python-selenium-api-tests/1.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded'}
+16:49:31 [DEBUG] https://automationexercise.com:443 "POST /api/verifyLogin HTTP/1.1" 200 None
+16:49:31 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (252 ms)
+16:49:31 [DEBUG]     body: {"responseCode": 400, "message": "Bad request, email or password parameter is missing in POST request."}
+16:49:31 [DEBUG] Status code 200 matched expected {200}
+16:49:31 [INFO] --> POST https://automationexercise.com/api/verifyLogin
+16:49:31 [DEBUG]     data   : {
+  "email": "testmail.999@gmail.com"
+}
+16:49:31 [DEBUG]     headers: {'User-Agent': 'python-selenium-api-tests/1.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded'}
+16:49:31 [DEBUG] https://automationexercise.com:443 "POST /api/verifyLogin HTTP/1.1" 200 None
+16:49:31 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (267 ms)
+16:49:31 [DEBUG]     body: {"responseCode": 400, "message": "Bad request, email or password parameter is missing in POST request."}
+16:49:31 [DEBUG] Status code 200 matched expected {200}
+16:49:31 [INFO] --> POST https://automationexercise.com/api/verifyLogin
+16:49:31 [DEBUG]     data   : {
+  "password": "password@81818"
+}
+16:49:31 [DEBUG]     headers: {'User-Agent': 'python-selenium-api-tests/1.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded'}
+16:49:31 [DEBUG] https://automationexercise.com:443 "POST /api/verifyLogin HTTP/1.1" 200 None
+16:49:31 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (269 ms)
+16:49:31 [DEBUG]     body: {"responseCode": 400, "message": "Bad request, email or password parameter is missing in POST request."}
+16:49:31 [DEBUG] Status code 200 matched expected {200}
+16:49:31 [DEBUG] Response matched schema successfully
