@@ -1,4 +1,44 @@
+# =====================================================================
+# Shared / UI configuration
+# =====================================================================
 browser: chrome
 headless: False
 timeout: 30000
 base_url: https://automationexercise.com/
+
+# =====================================================================
+# API testing configuration
+# =====================================================================
+api:
+  # Default environment to use when not overridden by API_ENV env var.
+  default_environment: dev
+
+  environments:
+    dev:
+      base_url: "https://automationexercise.com/api/"
+    staging:
+      base_url: ""    # TODO: set the staging API base URL
+    prod:
+      base_url: ""    # TODO: set the prod API base URL
+
+  # Network behaviour
+  timeout: 30                 # seconds (per request)
+  verify_ssl: true
+  max_retries: 3              # retries for transient failures (5xx, connection errors)
+  backoff_factor: 0.5         # exponential backoff factor used between retries
+
+  # Default headers attached to every outgoing request
+  default_headers:
+    Accept: application/json
+    Content-Type: application/json
+    User-Agent: python-selenium-api-tests/1.0
+
+  # Authentication. Supported types: none | bearer | basic | api_key
+  auth:
+    type: none
+    token_env: API_BEARER_TOKEN     # for type: bearer
+    username_env: API_USERNAME      # for type: basic
+    password_env: API_PASSWORD      # for type: basic
+    header_name: X-API-Key          # for type: api_key
+    api_key_env: API_KEY            # for type: api_key
+

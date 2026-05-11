@@ -7,3 +7,5 @@ python-dotenv
 PyYAML
 pytest-xdist
 pytest_check
+requests
+jsonschema

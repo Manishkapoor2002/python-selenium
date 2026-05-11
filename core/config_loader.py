@@ -61,6 +61,38 @@ class ConfigLoader:
         base_config["browser"] = browser
         base_config["base_url"] = base_url
 
+        # ------------------------------------------------------------------
+        # API configuration overlay (environment variables take precedence)
+        # ------------------------------------------------------------------
+        api_cfg = base_config.get("api") or {}
+        if api_cfg:
+            env_name = (
+                os.getenv("API_ENV")
+                or api_cfg.get("default_environment")
+                or "dev"
+            )
+            environments = api_cfg.get("environments") or {}
+            env_block = environments.get(env_name) or {}
+
+            # Resolve effective base url (env var > env block > top-level)
+            api_base_url = (
+                os.getenv("API_BASE_URL")
+                or env_block.get("base_url")
+                or api_cfg.get("base_url")
+            )
+            api_cfg["active_environment"] = env_name
+            api_cfg["base_url"] = api_base_url
+            base_config["api"] = api_cfg
+
         cls._config = base_config
         logger.info(f"Configuration loaded from {config_path}")
         return cls._config
+
+    @classmethod
+    def get_api_config(cls) -> dict:
+        """Convenience accessor for the API sub-configuration."""
+        cfg = cls.load_config()
+        api_cfg = cfg.get("api")
+        if not api_cfg:
+            raise KeyError("'api' section is missing from config.yaml")
+        return api_cfg
