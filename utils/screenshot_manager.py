@@ -1,4 +1,5 @@
 import logging
+import re
 from pathlib import Path
 from datetime import datetime
 
@@ -6,6 +7,8 @@ from datetime import datetime
 class ScreenshotManager:
     """Manages screenshot capture with proper directory handling and naming"""
     
+    _EMAIL_PATTERN = re.compile(r'[\w.+-]+@[\w-]+\.[\w.]+')
+
     def __init__(self, base_path="reports/screenshots"):
         self.logger = logging.getLogger(__name__)
         self.screenshot_dir = Path(base_path)
@@ -14,7 +17,13 @@ class ScreenshotManager:
     def _ensure_directory_exists(self):
         """Create screenshot directory if it doesn't exist"""
         self.screenshot_dir.mkdir(parents=True, exist_ok=True)
-    
+
+    @classmethod
+    def _sanitize_name(cls, name: str) -> str:
+        """Remove emails and other sensitive data from test names."""
+        sanitized = cls._EMAIL_PATTERN.sub('<REDACTED>', name)
+        return sanitized[:100]
+
     def capture_screenshot(self, driver, test_name, failure_stage):
         """
         Capture screenshot with timestamp and meaningful name
@@ -33,7 +42,8 @@ class ScreenshotManager:
         
         try:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")[:-3]
-            filename = f"{test_name}_{failure_stage}_{timestamp}.png"
+            safe_name = self._sanitize_name(test_name)
+            filename = f"{safe_name}_{failure_stage}_{timestamp}.png"
             file_path = self.screenshot_dir / filename
             
             driver.save_screenshot(str(file_path))

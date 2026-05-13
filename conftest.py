@@ -73,8 +73,18 @@ def config():
 
 @pytest.fixture
 def users_data():
-    """Load test data from JSON file"""
-    return TestDataLoader.load_json("user_credentials.json")
+    """Load test data from JSON file, overlaying secrets from env vars."""
+    import os
+    data = TestDataLoader.load_json("user_credentials.json")
+    # Overlay real credentials from .env (never committed)
+    if os.getenv("TEST_USER_EMAIL"):
+        data["valid_user"]["useremail"] = os.getenv("TEST_USER_EMAIL")
+        data["invalid_user"]["useremail"] = os.getenv("TEST_USER_EMAIL")
+    if os.getenv("TEST_USER_PASSWORD"):
+        data["valid_user"]["password"] = os.getenv("TEST_USER_PASSWORD")
+    if os.getenv("TEST_INVALID_PASSWORD"):
+        data["invalid_user"]["password"] = os.getenv("TEST_INVALID_PASSWORD")
+    return data
 
 
 @pytest.fixture

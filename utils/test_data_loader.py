@@ -1,4 +1,5 @@
 import json
+from copy import deepcopy
 from pathlib import Path
 
 
@@ -14,4 +15,4 @@ class TestDataLoader:
             with open(file_path, "r", encoding="utf-8") as f:
                 cls._cache[filename] = json.load(f)
 
-        return cls._cache[filename]
+        return deepcopy(cls._cache[filename])

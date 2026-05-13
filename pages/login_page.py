@@ -9,7 +9,7 @@ class LoginPage(BasePage):
 
     def enter_login_credentials(self, email, password):
         """Enter email and password and submit login form"""
-        self.logger.info("Entering login credentials")
+        self.logger.info("Entering login credentials for: %s, password: ***", email)
         email_input = (By.XPATH, "//input[@type='email' and @data-qa='login-email']")
         password_input = (By.XPATH, "//input[@type='password' and @data-qa='login-password']")
         login_button = (By.XPATH, "//button[@type='submit' and @data-qa='login-button']")

@@ -264,7 +264,41 @@ Don't:
 
 ---
 
-## 11. References
+## 11. Security Awareness (Global)
+
+All code suggestions MUST follow security standards defined in
+@security-standards.instructions.md. Key rules that apply everywhere:
+
+### Always
+- Use `yaml.safe_load()` for any YAML parsing
+- Use `ConfigLoader` / `.env` for all credentials and URLs
+- Use `BaseApiClient`'s session (never raw `requests` calls in tests)
+- Use `DriverManager` / `BrowserFactory` (never raw `webdriver.*`)
+- Mask passwords and tokens in all log messages
+- Validate responses before trusting their content
+- Close/quit all resources in teardown paths
+
+### Never
+- Hardcode secrets in Python, YAML, JSON, or .feature files
+- Set `verify=False` on any HTTP request
+- Use `yaml.load()` with unsafe loaders
+- Log or attach raw `Authorization` / `X-API-Key` headers
+- Use `execute_script()` with string-interpolated user input
+- Add `--disable-web-security` or `--ignore-certificate-errors` to browser flags
+- Commit `.env`, `reports/`, `logs/`, or `screenshots/`
+
+### When Generating Code
+- If a function handles passwords/tokens → mask in log statements
+- If constructing URLs → use `urljoin` / `quote`, not f-strings with raw input
+- If adding a new dependency → pin the version
+- If creating fixtures → ensure teardown runs even on failure (use `yield`)
+- If attaching to Allure → mask sensitive headers/bodies first
+
+When a security concern is identified, prefix with:
+⚠️ **SECURITY [SEVERITY]**: description
+
+
+## 12. References
 
 - Root fixtures & failure hook: [conftest.py](../conftest.py)
 - Pytest config: [pytest.ini](../pytest.ini)

@@ -8,7 +8,7 @@ tools: [filesystem, terminal]
 Change description: **${input:change}**
 
 ## Steps
-1. Use `ls -R` and `grep` to find affected files in:
+1. Use filesystem search and text search tools to find affected files in:
    - `pages/` (Page Objects)
    - `step_definitions/` (BDD steps)
    - `features/` (Feature files)

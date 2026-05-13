@@ -52,9 +52,12 @@ class BaseApiClient:
 
         self.base_url: str = (base_url or api_cfg["base_url"]).rstrip("/") + "/"
         self.timeout: float = float(timeout if timeout is not None else api_cfg.get("timeout", 30))
-        self.verify_ssl: bool = (
-            verify_ssl if verify_ssl is not None else bool(api_cfg.get("verify_ssl", True))
-        )
+        self.verify_ssl: bool = bool(api_cfg.get("verify_ssl", True))
+        if verify_ssl is not None and not verify_ssl:
+            logger.warning(
+                "⚠️ SECURITY: verify_ssl=False was requested but is disallowed by policy — enforcing True"
+            )
+            self.verify_ssl = True
         self._max_retries: int = int(
             max_retries if max_retries is not None else api_cfg.get("max_retries", 3)
         )
@@ -89,7 +92,7 @@ class BaseApiClient:
             backoff_factor=self._backoff_factor,
             status_forcelist=(429, 500, 502, 503, 504),
             allowed_methods=frozenset(
-                {"HEAD", "GET", "PUT", "DELETE", "OPTIONS", "TRACE", "POST", "PATCH"}
+                {"HEAD", "GET", "PUT", "DELETE", "OPTIONS", "TRACE"}
             ),
             raise_on_status=False,
         )
@@ -219,6 +222,18 @@ class BaseApiClient:
     # ------------------------------------------------------------------
     # Logging / reporting helpers
     # ------------------------------------------------------------------
+    _SENSITIVE_HEADERS: frozenset[str] = frozenset(
+        {"authorization", "x-api-key", "cookie", "set-cookie", "www-authenticate", "proxy-authorization"}
+    )
+
+    @classmethod
+    def _mask_headers(cls, headers: Mapping[str, str]) -> dict:
+        """Return a copy of *headers* with sensitive values replaced by '***'."""
+        return {
+            k: ("***" if k.lower() in cls._SENSITIVE_HEADERS else v)
+            for k, v in headers.items()
+        }
+
     @staticmethod
     def _safe_dump(payload: Any) -> str:
         if payload is None:
@@ -244,11 +259,8 @@ class BaseApiClient:
             logger.debug("    json   : %s", self._safe_dump(json_body))
         if data is not None:
             logger.debug("    data   : %s", self._safe_dump(data))
-        # never log Authorization header value
-        loggable_headers = {
-            k: ("***" if k.lower() in ("authorization", "x-api-key") else v)
-            for k, v in headers.items()
-        }
+        # never log sensitive header values
+        loggable_headers = self._mask_headers(headers)
         logger.debug("    headers: %s", loggable_headers)
 
     @staticmethod
@@ -289,7 +301,7 @@ class BaseApiClient:
                     {
                         "status_code": response.status_code,
                         "elapsed_ms": int(response.elapsed.total_seconds() * 1000),
-                        "headers": dict(response.headers),
+                        "headers": self._mask_headers(response.headers),
                         "body": response_payload,
                     }
                 ),

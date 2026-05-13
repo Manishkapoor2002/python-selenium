@@ -1,7 +1,7 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
-from selenium.webdriver.firefox.service import Service as FirefoxService
-from selenium.webdriver.edge.service import Service as EdgeService
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.edge.options import Options as EdgeOptions
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
 
 class BrowserFactory:
@@ -10,10 +10,15 @@ class BrowserFactory:
         browser_name = browser_name.lower()
 
         if browser_name == "chrome":
-            return webdriver.Chrome()
+            options = ChromeOptions()
+            options.add_argument("--disable-extensions")
+            return webdriver.Chrome(options=options)
         elif browser_name == "firefox":
-            return webdriver.Firefox()
+            options = FirefoxOptions()
+            return webdriver.Firefox(options=options)
         elif browser_name == "edge":
-            return webdriver.Edge()
+            options = EdgeOptions()
+            options.add_argument("--disable-extensions")
+            return webdriver.Edge(options=options)
         else:
             raise ValueError(f"Browser '{browser_name}' is not supported. Use chrome, firefox, or edge.")

@@ -1,4 +1,9 @@
 venv
+.venv
 reports
+logs
 .idea
 __pycache__
+*.pyc
+.env
+.env.*

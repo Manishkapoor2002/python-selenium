@@ -11,7 +11,8 @@ Changes needed: **${input:description}**
 ## Steps
 1. Read the target file in `pages/`
 2. Verify it inherits from `base_page.py`
-3. Add/modify locators as class constants (uppercase, descriptive)
+3. Add/modify locators as **method-local tuples** `(By.X, "selector")`
+   — prefer `data-qa` → CSS selector → XPath (see `ui-automation.instructions.md`)
 4. Add/modify methods following fluent pattern (return `self` or next page)
 5. Wrap actions in `@allure.step("...")`
 6. Check `step_definitions/` for steps that use this page — flag if they need updates

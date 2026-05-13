@@ -31,7 +31,10 @@ Create a service class that inherits from `BaseApiClient`.
 - Fixtures: Use the `api_client` fixture.
 - Validation: Do NOT use bare `assert` statements. Use `ResponseValidator` methods:
   - `ResponseValidator.assert_status_code(response, expected_code)`
-  - `ResponseValidator.assert_json_value(response, key, expected_value)`
+  - `ResponseValidator.get_json(response)`
+  - `ResponseValidator.assert_json_contains(response, {"key": expected_value})`
+  - `ResponseValidator.assert_matches_schema(response, "schema_file.json")`
+  - `ResponseValidator.assert_response_time_under(response, max_seconds)`
 
 ## Required Response Format
 When generating the code, provide it in three distinct blocks:
