@@ -22,13 +22,13 @@ class Product:
 class MethodNotAllowedResponse:
     """Generic error payload returned when an unsupported HTTP method is used."""
 
-    responseCode: int
+    response_code: int
     message: str
 
     @classmethod
     def from_dict(cls, data: dict) -> "MethodNotAllowedResponse":
         return cls(
-            responseCode=data.get("responseCode"),
+            response_code=data.get("responseCode"),
             message=data.get("message"),
         )
 

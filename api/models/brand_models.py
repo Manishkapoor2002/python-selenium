@@ -37,13 +37,13 @@ class BrandsListResponse:
 class MethodNotSupportedResponse:
     """Payload returned when an unsupported HTTP verb is used on /brandsList."""
 
-    responseCode: int
+    response_code: int
     message: str
 
     @classmethod
     def from_dict(cls, data: dict) -> "MethodNotSupportedResponse":
         return cls(
-            responseCode=data.get("responseCode"),
+            response_code=data.get("responseCode"),
             message=data.get("message"),
         )
 

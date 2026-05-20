@@ -1,72 +1,51 @@
-16:49:28 [INFO] Configuration loaded from C:\Users\ManishKapoor\Desktop\python-selenium\config\config.yaml
-16:49:28 [INFO] BaseApiClient initialised | base_url=https://automationexercise.com/api/ timeout=30.0 retries=3 auth=none
-16:49:28 [INFO] --> POST https://automationexercise.com/api/verifyLogin
-16:49:28 [DEBUG]     data   : {
-  "email": "testmail.999@gmail.com",
-  "password": "password@81818"
-}
-16:49:28 [DEBUG]     headers: {'User-Agent': 'python-selenium-api-tests/1.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded'}
-16:49:28 [DEBUG] Starting new HTTPS connection (1): automationexercise.com:443
-16:49:30 [DEBUG] https://automationexercise.com:443 "POST /api/verifyLogin HTTP/1.1" 200 48
-16:49:30 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (1367 ms)
-16:49:30 [DEBUG]     body: {"responseCode": 200, "message": "User exists!"}
-16:49:30 [DEBUG] Status code 200 matched expected {200}
-16:49:30 [INFO] --> POST https://automationexercise.com/api/verifyLogin
-16:49:30 [DEBUG]     data   : {
-  "email": "testmail.999@gmail.com",
-  "password": "password@81818"
-}
-16:49:30 [DEBUG]     headers: {'User-Agent': 'python-selenium-api-tests/1.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded'}
-16:49:30 [DEBUG] https://automationexercise.com:443 "POST /api/verifyLogin HTTP/1.1" 200 48
-16:49:30 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (297 ms)
-16:49:30 [DEBUG]     body: {"responseCode": 200, "message": "User exists!"}
-16:49:30 [DEBUG] Status code 200 matched expected {200}
-16:49:30 [DEBUG] Response matched schema successfully
-16:49:30 [INFO] --> POST https://automationexercise.com/api/verifyLogin
-16:49:30 [DEBUG]     data   : {
-  "email": "testmail.999@gmail.com",
-  "password": "password@81818"
-}
-16:49:30 [DEBUG]     headers: {'User-Agent': 'python-selenium-api-tests/1.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded'}
-16:49:30 [DEBUG] https://automationexercise.com:443 "POST /api/verifyLogin HTTP/1.1" 200 48
-16:49:30 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (250 ms)
-16:49:30 [DEBUG]     body: {"responseCode": 200, "message": "User exists!"}
-16:49:30 [DEBUG] Status code 200 matched expected {200}
-16:49:30 [INFO] --> POST https://automationexercise.com/api/verifyLogin
-16:49:30 [DEBUG]     data   : {
-  "email": "testmail.999@gmail.com",
-  "password": "Radom@81818"
-}
-16:49:30 [DEBUG]     headers: {'User-Agent': 'python-selenium-api-tests/1.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded'}
-16:49:30 [DEBUG] https://automationexercise.com:443 "POST /api/verifyLogin HTTP/1.1" 200 None
-16:49:30 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (262 ms)
-16:49:30 [DEBUG]     body: {"responseCode": 404, "message": "User not found!"}
-16:49:30 [DEBUG] Status code 200 matched expected {200}
-16:49:30 [INFO] --> POST https://automationexercise.com/api/verifyLogin
-16:49:30 [DEBUG]     data   : {
-  "password": "password@81818"
-}
-16:49:30 [DEBUG]     headers: {'User-Agent': 'python-selenium-api-tests/1.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded'}
-16:49:31 [DEBUG] https://automationexercise.com:443 "POST /api/verifyLogin HTTP/1.1" 200 None
-16:49:31 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (252 ms)
-16:49:31 [DEBUG]     body: {"responseCode": 400, "message": "Bad request, email or password parameter is missing in POST request."}
-16:49:31 [DEBUG] Status code 200 matched expected {200}
-16:49:31 [INFO] --> POST https://automationexercise.com/api/verifyLogin
-16:49:31 [DEBUG]     data   : {
-  "email": "testmail.999@gmail.com"
-}
-16:49:31 [DEBUG]     headers: {'User-Agent': 'python-selenium-api-tests/1.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded'}
-16:49:31 [DEBUG] https://automationexercise.com:443 "POST /api/verifyLogin HTTP/1.1" 200 None
-16:49:31 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (267 ms)
-16:49:31 [DEBUG]     body: {"responseCode": 400, "message": "Bad request, email or password parameter is missing in POST request."}
-16:49:31 [DEBUG] Status code 200 matched expected {200}
-16:49:31 [INFO] --> POST https://automationexercise.com/api/verifyLogin
-16:49:31 [DEBUG]     data   : {
-  "password": "password@81818"
-}
-16:49:31 [DEBUG]     headers: {'User-Agent': 'python-selenium-api-tests/1.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded'}
-16:49:31 [DEBUG] https://automationexercise.com:443 "POST /api/verifyLogin HTTP/1.1" 200 None
-16:49:31 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (269 ms)
-16:49:31 [DEBUG]     body: {"responseCode": 400, "message": "Bad request, email or password parameter is missing in POST request."}
-16:49:31 [DEBUG] Status code 200 matched expected {200}
-16:49:31 [DEBUG] Response matched schema successfully
+15:58:11 [INFO] Configuration loaded from C:\Users\ManishKapoor\Desktop\python-selenium\config\config.yaml
+15:58:11 [INFO] BaseApiClient initialised | base_url=https://automationexercise.com/api/ timeout=30.0 retries=3 auth=none
+15:58:11 [INFO] --> GET https://automationexercise.com/api/brandsList
+15:58:13 [INFO] <-- 200 https://automationexercise.com/api/brandsList (1913 ms)
+15:58:13 [INFO] --> GET https://automationexercise.com/api/brandsList
+15:58:13 [INFO] <-- 200 https://automationexercise.com/api/brandsList (257 ms)
+15:58:13 [INFO] --> GET https://automationexercise.com/api/brandsList
+15:58:14 [INFO] <-- 200 https://automationexercise.com/api/brandsList (329 ms)
+15:58:14 [INFO] --> PUT https://automationexercise.com/api/brandsList
+15:58:14 [INFO] <-- 200 https://automationexercise.com/api/brandsList (260 ms)
+15:58:14 [INFO] --> PUT https://automationexercise.com/api/brandsList
+15:58:14 [INFO] <-- 200 https://automationexercise.com/api/brandsList (377 ms)
+15:58:14 [INFO] BaseApiClient initialised | base_url=https://automationexercise.com/api/ timeout=30.0 retries=3 auth=none
+15:58:14 [INFO] --> GET https://automationexercise.com/api/productsList
+15:58:16 [INFO] <-- 200 https://automationexercise.com/api/productsList (1102 ms)
+15:58:16 [INFO] --> GET https://automationexercise.com/api/productsList
+15:58:16 [INFO] <-- 200 https://automationexercise.com/api/productsList (382 ms)
+15:58:16 [INFO] --> GET https://automationexercise.com/api/productsList
+15:58:16 [INFO] <-- 200 https://automationexercise.com/api/productsList (391 ms)
+15:58:16 [INFO] --> POST https://automationexercise.com/api/productsList
+15:58:17 [INFO] <-- 200 https://automationexercise.com/api/productsList (254 ms)
+15:58:17 [INFO] --> POST https://automationexercise.com/api/productsList
+15:58:17 [INFO] <-- 200 https://automationexercise.com/api/productsList (310 ms)
+15:58:17 [INFO] BaseApiClient initialised | base_url=https://automationexercise.com/api/ timeout=30.0 retries=3 auth=none
+15:58:17 [INFO] --> POST https://automationexercise.com/api/searchProduct
+15:58:18 [INFO] <-- 200 https://automationexercise.com/api/searchProduct (885 ms)
+15:58:18 [INFO] --> POST https://automationexercise.com/api/searchProduct
+15:58:18 [INFO] <-- 200 https://automationexercise.com/api/searchProduct (397 ms)
+15:58:18 [INFO] --> POST https://automationexercise.com/api/searchProduct
+15:58:19 [INFO] <-- 200 https://automationexercise.com/api/searchProduct (275 ms)
+15:58:19 [INFO] --> POST https://automationexercise.com/api/searchProduct
+15:58:19 [INFO] <-- 200 https://automationexercise.com/api/searchProduct (396 ms)
+15:58:19 [INFO] --> POST https://automationexercise.com/api/searchProduct
+15:58:19 [INFO] <-- 200 https://automationexercise.com/api/searchProduct (284 ms)
+15:58:19 [INFO] --> POST https://automationexercise.com/api/searchProduct
+15:58:20 [INFO] <-- 200 https://automationexercise.com/api/searchProduct (349 ms)
+15:58:20 [INFO] BaseApiClient initialised | base_url=https://automationexercise.com/api/ timeout=30.0 retries=3 auth=none
+15:58:20 [INFO] --> POST https://automationexercise.com/api/verifyLogin
+15:58:21 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (934 ms)
+15:58:21 [INFO] --> POST https://automationexercise.com/api/verifyLogin
+15:58:21 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (293 ms)
+15:58:21 [INFO] --> POST https://automationexercise.com/api/verifyLogin
+15:58:21 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (357 ms)
+15:58:21 [INFO] --> POST https://automationexercise.com/api/verifyLogin
+15:58:22 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (410 ms)
+15:58:22 [INFO] --> POST https://automationexercise.com/api/verifyLogin
+15:58:22 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (389 ms)
+15:58:22 [INFO] --> POST https://automationexercise.com/api/verifyLogin
+15:58:23 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (262 ms)
+15:58:23 [INFO] --> POST https://automationexercise.com/api/verifyLogin
+15:58:23 [INFO] <-- 200 https://automationexercise.com/api/verifyLogin (289 ms)

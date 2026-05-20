@@ -64,7 +64,6 @@ The `.github/` directory forms a **layered Copilot configuration system**:
 ```
 .github/
 ├── copilot-instructions.md                          # Master rulebook (always loaded)
-├── README.md                                        # This file
 ├── agents/
 │   ├── taf-maintainer.agent.md                      # Autonomous SDET agent
 │   └── security-reviewer.agent.md                   # Security audit agent

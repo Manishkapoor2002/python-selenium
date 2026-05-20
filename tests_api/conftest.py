@@ -10,11 +10,13 @@ as new endpoint services are introduced.
 from __future__ import annotations
 
 import logging
+import os
 from typing import Iterator
 
 import pytest
 
 from api.base_client import BaseApiClient
+from utils.api_data_loader import ApiDataLoader
 
 logger = logging.getLogger(__name__)
 
@@ -29,3 +31,16 @@ def api_client() -> Iterator[BaseApiClient]:
     logger.info("API client session closed")
 
 
+@pytest.fixture(scope="module")
+def user_credentials() -> dict:
+    """Load user credentials from data/user_credentials.json, overlaying .env secrets."""
+    data = ApiDataLoader.load("user_credentials.json")
+    # Overlay real credentials from .env (never committed)
+    if os.getenv("TEST_USER_EMAIL"):
+        data["valid_user"]["useremail"] = os.getenv("TEST_USER_EMAIL")
+        data["invalid_user"]["useremail"] = os.getenv("TEST_USER_EMAIL")
+    if os.getenv("TEST_USER_PASSWORD"):
+        data["valid_user"]["password"] = os.getenv("TEST_USER_PASSWORD")
+    if os.getenv("TEST_INVALID_PASSWORD"):
+        data["invalid_user"]["password"] = os.getenv("TEST_INVALID_PASSWORD")
+    return data

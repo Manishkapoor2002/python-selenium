@@ -13,13 +13,13 @@ class VerifyLoginResponse:
     the in-body ``responseCode`` field (200, 400, 404).
     """
 
-    responseCode: Optional[int] = None
+    response_code: Optional[int] = None
     message: Optional[str] = None
 
     @classmethod
     def from_dict(cls, data: dict) -> "VerifyLoginResponse":
         return cls(
-            responseCode=data.get("responseCode"),
+            response_code=data.get("responseCode"),
             message=data.get("message"),
         )
 

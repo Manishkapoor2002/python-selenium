@@ -226,6 +226,22 @@ class BaseApiClient:
         {"authorization", "x-api-key", "cookie", "set-cookie", "www-authenticate", "proxy-authorization"}
     )
 
+    _SENSITIVE_BODY_KEYS: frozenset[str] = frozenset(
+        {"password", "passwd", "secret", "token", "api_key", "apikey", "access_token", "refresh_token"}
+    )
+
+    @classmethod
+    def _mask_body(cls, body: Any) -> Any:
+        """Recursively mask sensitive keys in a request body dict before logging or attaching."""
+        if isinstance(body, dict):
+            return {
+                k: ("***" if k.lower() in cls._SENSITIVE_BODY_KEYS else cls._mask_body(v))
+                for k, v in body.items()
+            }
+        if isinstance(body, list):
+            return [cls._mask_body(item) for item in body]
+        return body
+
     @classmethod
     def _mask_headers(cls, headers: Mapping[str, str]) -> dict:
         """Return a copy of *headers* with sensitive values replaced by '***'."""
@@ -258,7 +274,7 @@ class BaseApiClient:
         if json_body is not None:
             logger.debug("    json   : %s", self._safe_dump(json_body))
         if data is not None:
-            logger.debug("    data   : %s", self._safe_dump(data))
+            logger.debug("    data   : %s", self._safe_dump(self._mask_body(data)))
         # never log sensitive header values
         loggable_headers = self._mask_headers(headers)
         logger.debug("    headers: %s", loggable_headers)
@@ -286,7 +302,7 @@ class BaseApiClient:
             "method": method.upper(),
             "url": url,
             "params": dict(params) if params else None,
-            "body": body,
+            "body": self._mask_body(body),
         }
         allure.attach(
             self._safe_dump(request_meta),

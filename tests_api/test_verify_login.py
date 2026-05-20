@@ -8,7 +8,6 @@ import pytest
 
 from api.endpoints.auth_service import AuthService
 from api.models.auth_models import VerifyLoginResponse
-from utils.api_data_loader import ApiDataLoader
 from utils.response_validator import ResponseValidator
 
 
@@ -18,12 +17,6 @@ def auth_service() -> Iterator[AuthService]:
     service = AuthService()
     yield service
     service.close()
-
-
-@pytest.fixture(scope="module")
-def user_credentials() -> dict:
-    """Load user credentials from data/user_credentials.json (deep-copied)."""
-    return ApiDataLoader.load("user_credentials.json")
 
 
 @pytest.fixture(scope="module")
@@ -158,4 +151,3 @@ class TestVerifyLogin:
         response = auth_service.verify_login(password=valid_user["password"])
         ResponseValidator.assert_status_code(response, 200)
         ResponseValidator.assert_matches_schema(response, "verify_login.json")
-
